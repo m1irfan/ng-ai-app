@@ -77,7 +77,7 @@ export class HomeComponent {
   // }
 
 
-  sendMessage() {
+  sendMessage() { 
 
     this.currentUserMessage = "new top 10 ideas for business";
 
