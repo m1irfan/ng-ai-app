@@ -1,0 +1,11 @@
+<p>home works!</p>
+
+<strong *ngIf="chatMessages[0].model === 'tinyllama:latest'">User: </strong>
+<span>{{ chatMessages[0].prompt }}</span>
+
+<div *ngFor="let msg of chatMessages">
+  <!-- <strong *ngIf="msg.model === 'tinyllama:latest'">AI:</strong>
+  <strong *ngIf="msg.model !== 'tinyllama:latest'">User:</strong> -->
+  <p>{{ msg.prompt }}</p>
+  <!-- Tokens appear here dynamically -->
+</div>
