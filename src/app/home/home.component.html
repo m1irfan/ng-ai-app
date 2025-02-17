@@ -1,11 +1,57 @@
-<p>home works!</p>
-
-<strong *ngIf="chatMessages[0].model === 'tinyllama:latest'">User: </strong>
+<!-- <strong *ngIf="chatMessages[0].model === 'tinyllama:latest'">User: </strong>
 <span>{{ chatMessages[0].prompt }}</span>
 
 <div *ngFor="let msg of chatMessages">
-  <!-- <strong *ngIf="msg.model === 'tinyllama:latest'">AI:</strong>
-  <strong *ngIf="msg.model !== 'tinyllama:latest'">User:</strong> -->
+   <strong *ngIf="msg.model === 'tinyllama:latest'">AI:</strong>
+  <strong *ngIf="msg.model !== 'tinyllama:latest'">User:</strong> 
   <p>{{ msg.prompt }}</p>
-  <!-- Tokens appear here dynamically -->
-</div>
+</div>-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat GPT Clone</title>
+
+    <!-- Link to your CSS file for styling -->
+  </head>
+  <body>
+    <div class="container-fluid mb-5">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 overflow-auto">
+          <!-- Output Area -->
+          <div id="outputArea" *ngFor="let msg of chatMessages">
+            <p [innerHtml]="msg.prompt"></p>
+          </div>
+          <!-- <h1>Chat with AI</h1> -->
+          <!--<div class="text-center">
+            <button id="sendButton" class="btn btn-light btn-lg border">
+              Send
+            </button>
+          </div>
+          -->
+          <!-- Link to your JavaScript file for functionality -->
+          <!-- <div class="row fixed-bottom">
+            
+          </div> -->
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row fixed-bottom">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <input
+            type="text"
+            id="inputText"
+            placeholder="Type a question..."
+            (keyup.enter)="sendMessage($event)"
+          />
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+  </body>
+</html>

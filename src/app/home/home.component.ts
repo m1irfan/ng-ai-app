@@ -17,7 +17,7 @@ export interface ChatMessage {
 export class HomeComponent {
 
   constructor(private http: HttpClient) {
-    this.sendMessage();
+    //this.sendMessage();
   }
 
   currentUserMessage!: string;
@@ -26,8 +26,10 @@ export class HomeComponent {
 
   result:string | null = null;
 
+  input:string = "";
 
-  // sendMessage() {
+
+  // sendMessage(event:Event) {
   //   this.currentUserMessage = "write a romantic song for my wife";
 
   //   if (this.currentUserMessage.trim() === "") return;
@@ -77,16 +79,20 @@ export class HomeComponent {
   // }
 
 
-  sendMessage() { 
+  sendMessage(event:Event) { 
 
-    this.currentUserMessage = "new top 10 ideas for business";
+    this.input = (event.target as HTMLInputElement).value;
+
+    //this.currentUserMessage = "provide me html code of chat-gpt like prompt interface";
+    this.currentUserMessage = this.input ;//+ "always return output as html, and no need to tell that you are returning as html";
+
 
     if (!this.currentUserMessage.trim()) return;
   
     this.loadingResponse = true; 
   
     // Add user message to chat history
-    this.chatMessages.push({ model: "tinyllama:latest", prompt: this.currentUserMessage });
+    //this.chatMessages.push({ model: "tinyllama:latest", prompt: this.currentUserMessage });
   
     const responseMessage: ChatMessage = { model: "tinyllama:latest", prompt: "" };
     this.chatMessages.push(responseMessage);
