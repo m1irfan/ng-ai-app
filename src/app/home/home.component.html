@@ -16,31 +16,20 @@
     <!-- Link to your CSS file for styling -->
   </head>
   <body>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5 overflow-auto" style="height: 450px">
       <div class="row">
         <div class="col-lg-2"></div>
-        <div class="col-lg-8 overflow-auto">
+        <div class="col-lg-8">
           <!-- Output Area -->
           <div id="outputArea" *ngFor="let msg of chatMessages">
             <p [innerHtml]="msg.prompt"></p>
           </div>
-          <!-- <h1>Chat with AI</h1> -->
-          <!--<div class="text-center">
-            <button id="sendButton" class="btn btn-light btn-lg border">
-              Send
-            </button>
-          </div>
-          -->
-          <!-- Link to your JavaScript file for functionality -->
-          <!-- <div class="row fixed-bottom">
-            
-          </div> -->
         </div>
         <div class="col-lg-2"></div>
       </div>
     </div>
     <div class="container-fluid">
-      <div class="row fixed-bottom">
+      <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
           <input
