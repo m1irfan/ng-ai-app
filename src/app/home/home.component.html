@@ -21,8 +21,15 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
           <!-- Output Area -->
-          <div id="outputArea" *ngFor="let msg of chatMessages">
-            <p [innerHtml]="msg.prompt"></p>
+          <div id="outputArea">
+            <p *ngFor="let msg of chatMessages" [innerHtml]="msg.prompt"></p>
+          </div>
+          <div *ngFor="let q of quiz">
+            <p>{{ q.question }}</p>
+            <ul>
+              <li *ngFor="let option of q.options">{{ option }}</li>
+            </ul>
+            <p>{{ q.correctAnswer }}</p>
           </div>
         </div>
         <div class="col-lg-2"></div>
@@ -32,12 +39,11 @@
       <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-          <input
-            type="text"
+          <textarea
             id="inputText"
             placeholder="Type a question..."
             (keyup.enter)="sendMessage($event)"
-          />
+          ></textarea>
         </div>
         <div class="col-lg-2"></div>
       </div>
